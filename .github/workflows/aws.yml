@@ -45,10 +45,10 @@ jobs:
     steps:
     - name: Git clone on our repo
       uses: actions/checkout@v2
-    - name: Create zip deployment package
-      run: zip -r ${{ env.DEPLOY_PACKAGE_NAME }} ./ -x *.git*
     - name: Display structure of downloaded files
       run: ls -R
+    - name: Create zip deployment package
+      run: zip -r ${{ env.DEPLOY_PACKAGE_NAME }} ./ -x *.git*
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v4
       with:
